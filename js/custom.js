@@ -10,9 +10,6 @@ $(window).load(function () {
     });
 })
 
-
-
-
 $(document).ready(function () {
     "use strict";
 
@@ -63,8 +60,6 @@ $(document).ready(function () {
             $(".navbar-fixed-top").removeClass("bg-nav");
         }
     });
-
-
 
     // Parallax
     var parallax = function () {
@@ -123,60 +118,5 @@ $(document).ready(function () {
 
 
 
-    // Contact Form 	
 
-    // validate contact form
-    $(function () {
-        $('#contact-form').validate({
-            rules: {
-                name: {
-                    required: true,
-                    minlength: 2
-                },
-                email: {
-                    required: true
-                },
-                phone: {
-                    required: false
-                },
-                message: {
-                    required: true
-                }
-
-            },
-            messages: {
-                name: {
-                    required: "This field is required",
-                    minlength: "your name must consist of at least 2 characters"
-                },
-                email: {
-                    required: "This field is required"
-                },
-                message: {
-                    required: "This field is required"
-                }
-            },
-            submitHandler: function (form) {
-                $(form).ajaxSubmit({
-                    type: "POST",
-                    data: $(form).serialize(),
-                    url: "process.php",
-                    success: function () {
-                        $('#contact :input').attr('disabled', 'disabled');
-                        $('#contact').fadeTo("slow", 1, function () {
-                            $(this).find(':input').attr('disabled', 'disabled');
-                            $(this).find('label').css('cursor', 'default');
-                            $('#success').fadeIn();
-                        });
-                    },
-                    error: function () {
-                        $('#contact').fadeTo("slow", 1, function () {
-                            $('#error').fadeIn();
-                        });
-                    }
-                });
-            }
-        });
-
-    });
 });
